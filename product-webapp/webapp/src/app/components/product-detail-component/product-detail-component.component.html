@@ -1,0 +1,124 @@
+
+  <app-navbar></app-navbar>
+<div class="main"  >
+    <div class="card" style="background-color:  #faf0d7  ;">
+<div class="row" style="display: flex;float: left; margin: 0px 2px 2px 40px;" >
+
+    <div class="col-md-4">
+      <div style="margin-top: 5%;">
+        <span *ngIf = "product2">
+          <img class="img-fluid rounded-start rounded-end"  style="height: 500px; max-width: 1000px;" [src]="getBase64ImageSrc(product2.productImage)">
+          </span>
+      </div>
+        <div class="btn">
+          <!-- <button mat-raised-button color="primary" routerLink="['/mycart']">My Cart</button> -->
+          <button mat-button color="primary" [routerLink]="['/mycart']">My Cart</button>
+          <button mat-raised-button color="accent" (click)="addToCart(product2)" role="button" (click)="addToCartClick()">Add to Cart</button>
+    </div>
+        </div>
+    <div class="col-md-8  background " style="background-color:  #faf0d7 ;">
+        <div style="display: flex;"> 
+   <div class="writeup" style="font-size: larger; line-height: 150%;">
+
+    <div *ngIf = "product2">
+
+
+      <h2>{{product2.productBrand}}</h2>
+        <b><h1 id="productName">{{product2.productName}}</h1></b>
+        <b style="color: green; font-weight: 500; margin-right: 10px;">{{product2.rating}}&#9733;</b>
+        <p style="font-weight: 800;">Special Price</p>
+        <div style="display: flex; align-items: center;">
+          <b style="margin-right: 10px; font-size: x-large;">&#8377;{{product2.sellingPrice}}</b>
+          <span style="margin-right: 10px;"><s>&#8377;{{product2.price}}</s></span>
+          <br>     
+        </div>
+
+
+        <h3>PRODUCT DETAILS</h3>
+        <p *ngFor="let line of product2.productDesc.split('\n')">{{line}}</p>
+        
+        
+            </div>
+                    <h3>AVAILABLE OFFERS</h3>
+                    <ul>
+                        <li>Special PriceGet extra 14% off (price inclusive of cashback/coupon)</li>
+                        <li>Combo OfferBuy 2 items save 5%; Buy 3 or more save 10%</li>
+                        <li>Bank Offer5% Cashback on Flipkart Axis Bank Card</li>
+                        <!-- <li>Partner OfferPurchase now & get 1 surprise cashback coupon in Future<li>
+                        <li>Partner OfferPurchase now & get 1 surprise cashback coupon in Future<li>
+                        <li>Partner OfferPurchase now & get 1 surprise cashback coupon in Future<li>
+                        <li>No Cost EMI on Bajaj Finserv EMI Network Card on cart value above ₹2997</li> -->
+                      </ul>
+            </div>
+           
+            </div>
+             <div class="imgthumbnail" style="padding: 10px;margin-left: 50px;">
+
+                 
+                 <img src="https://png.pngtree.com/png-vector/20230225/ourmid/pngtree-free-delivery-tagged-labels-png-image_6620066.png" height="100px" width="100px" alt="">
+                 <img src="https://png.pngtree.com/png-clipart/20230103/original/pngtree-original-product-100-percent-logo-badge-png-image_8865085.png" height="100px" width="100px"alt="">
+                 <img src="https://freedesignfile.com/upload/2016/08/15th-autught-Indian-Independence-Day-background-vector-04.jpg"height="100px" width="100px" alt="">
+                 <img src="https://static.vecteezy.com/system/resources/previews/005/862/240/original/go-green-logo-template-free-vector.jpg"height="100px" width="100px" alt="">
+                </div>
+            </div>
+
+    </div>
+
+<br><br><hr>
+
+<div>
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <h2><b>Similar Products</b></h2>
+    <div>
+      <button mat-raised-button color="primary" style="font-size: larger;" [routerLink]="['/productList']">More</button>
+    </div>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-left: 5%;">
+    <div class="col" *ngFor="let item of product3">
+      <div class="card details">
+        <a href="/productdet/{{item.productId}}" style="display: block; margin-left: 8%;">
+          <div class="image-wrapper">
+            <img [src]="item.image" alt="Product Image" class="card-img-top images">
+          </div>
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{item.productName}}</h5>
+          <p class="card-text" style="color: green;">
+            {{item.rating}}&#9733;
+          </p>
+          <h3>&#8377;{{item.sellingPrice}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- <app-customer-review-show></app-customer-review-show> -->
+ 
+
+
+
+
+
+    
+
+    <div class="container" style="border-top: 1px dotted black;"><br>
+      <!-- <app-customer-review-show></app-customer-review-show> -->
+      <br>
+      <div class="container">
+        <h2>Ratings and Reviews 💫</h2>
+        <hr>    
+        <div *ngFor="let review of reviews" class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Username: {{ review.customerId }}</h5>
+            <h4 class="card-title">Rating: {{ review.rating }} ★</h4>
+            <p class="card-text">{{ review.review }}</p>
+          </div>
+        </div>
+      </div>
+      
+
+    </div> 
+    
+
+</div>
+</div>
+</div>

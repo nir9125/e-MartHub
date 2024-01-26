@@ -1,0 +1,12 @@
+
+   <br><br><hr>    
+<div class="container">
+  <h2>Ratings and Reviews 💫</h2>
+  <div *ngFor="let review of reviews" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Username: {{ review.customerId }}</h5>
+      <h4 class="card-title">Rating: {{ review.rating }} ★</h4>
+      <p class="card-text">{{ review.review }}</p>
+    </div>
+  </div>
+</div>

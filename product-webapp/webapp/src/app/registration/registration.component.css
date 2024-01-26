@@ -1,0 +1,49 @@
+.container {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+small {
+  color: rgb(235, 149, 149);
+}
+.title{
+  text-align: center;
+  margin-top: 0%;
+
+}
+.image{
+  width: 15%;
+}
+.img-fluid {
+  margin-top: 15%;
+  padding-bottom: 15%;
+}
+.card-title {
+  font-weight: 600;
+  font-size: large;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.title {
+  margin-top: 0%;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+@keyframes fade-in {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+#animated-card {
+  animation: fade-in 1s ease-out;
+}

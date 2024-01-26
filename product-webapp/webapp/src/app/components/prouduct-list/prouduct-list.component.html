@@ -1,0 +1,155 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Filters</mat-toolbar>
+    <mat-nav-list>
+      <button class="btn" mat-button (click)="sortBy('srating')">Sort by Ratings {{ sortDirectionRating === 'desc' ? '↑' : '↓' }}</button>
+        <button class="btn" mat-button (click)="sortBy('sprice')">
+          Sort by Price {{ sortDirection === 'asc' ? '↑' : '↓' }}
+        </button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #090580;">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <a routerLink="/customerDashboard"><img src="assets/images/e-martHub-logos_transparent.png" alt="Logo"class="imageLogo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <div class="search-bar">
+          <input type="text" placeholder="Search...">
+           </div>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/mycart"><i class="material-icons" style="font-size:43px; color: aliceblue;">shopping_cart</i></a>
+          </li>
+        <li class="nav-item">
+
+          
+          <a><i class="material-icons" [matMenuTriggerFor]="menu" style="font-size:43px; color: aliceblue; margin-left: 100%;">person</i></a>
+        </li>
+          
+          <li class="nav-item">
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="['/userProfile']">
+                Profile
+              </button>
+              <button mat-menu-item [routerLink]="['/orderHistory']" >
+                Order History
+              </button>
+              <button mat-menu-item style="color: red;" [routerLink]="['/login']">
+               Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+    <app-navbar></app-navbar>
+
+
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #090580;">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <a routerLink="/customerDashboard"><img src="assets/images/e-martHub-logos_transparent.png" alt="Logo"class="imageLogo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navItems" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <div class="search-bar">
+          <input type="text" placeholder="Search...">
+           </div>
+          </li>
+
+          <div style="display:flex;  justify-content: space-between; width: 5%;" class="iconImages">
+            <a routerLink="/mycart"><i class="material-icons" style="font-size:43px; color: aliceblue;">shopping_cart</i></a>
+            
+            <a><i class="material-icons" [matMenuTriggerFor]="menu" style="font-size:43px; color: aliceblue; margin-left: 100%;">person</i></a>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="['/userProfile']">
+                Profile
+              </button>
+              <button mat-menu-item >
+                Order History
+              </button>
+              <button mat-menu-item style="color: red;" [routerLink]="['/login']">
+               Logout
+              </button>
+            </mat-menu>
+              
+          </div>          
+        </ul>
+      </div>
+    </nav> -->
+    <!-- Add Content Here -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- First Row -->
+          <div class="col-md-3" *ngFor="let item of  products">
+            <mat-card class="matcard">
+              <!-- ... (card content) ... -->
+              <div class="product row-cols-1">
+                <div class="image-container">
+                  <a href="/productdet/{{item.productId}}" style="display: block; margin-left: 8%;">
+                    <div class="image-wrapper">
+                      <img [src]="item.image" alt="image" class="imageOfProduct">
+                    </div>
+                  </a>
+                </div>
+                <div class="row-cols-2 text-container" style="margin-top: 10px;margin-left: 8%;">
+                  <h6>
+                    <u>{{item.productName}}</u>
+                  </h6>
+                  <!-- <i>Women Printed ...</i> -->
+                  <p>
+                    <ng-container *ngIf="item.rating; else noRatings">
+                      <mat-icon *ngFor="let _ of [1, 2, 3, 4, 5]"
+                        [ngClass]="{ 'rating-filled': _ <= item.rating, 'rating-empty': _ > item.rating }">
+                        star
+                      </mat-icon>
+                    </ng-container>
+                    <ng-template #noRatings>No ratings yet</ng-template>
+                  </p>
+                  <div style="display: flex; align-items: center;">
+                    <b style="margin-right: 10px;">&#8377;{{item.sellingPrice}}</b>
+                    <span style="margin-right: 10px;"><s>&#8377;{{item.price}}</s></span>
+                    <b style="color: green; font-weight: 500; margin-right: 10px;">{{item.discountedPercentage}}%off</b>
+                    <br>     
+                  </div>
+                  <mat-card-actions class="card-actions">
+                    <!-- <button mat-button color="primary"  (click)="onBookNowClick()">Book Now</button> -->
+                    <button mat-button color="primary" [routerLink]="['/productdet',item.productId]">view details</button>
+                  </mat-card-actions>
+                </div>
+              </div>
+            </mat-card>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

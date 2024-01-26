@@ -1,0 +1,163 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #090580;">
+ 
+  <li class="nav-item">
+
+    <a routerLink="/customerDashboard"><img src="assets/images/e-martHub-logos_transparent.png" alt="Logo"class="imageLogo"></a>
+  </li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+    
+      <li class="nav-item">
+        <a><i class="material-icons" [matMenuTriggerFor]="menu" style="font-size:43px;   color: aliceblue; ">person</i></a>
+       </li>
+      <li class="nav-item">
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/userProfile']" style="background-color: white; color: black;">
+            Profile
+          </button>
+         
+          <button mat-menu-item style="color: red;" [routerLink]="['/login']" style="background-color: white; color: black;">
+           Logout
+          </button>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="create-button">
+  <button (click)="openCreateDialog()"  class="btn add-products-button">Add Products</button>
+</div>
+<!-- <div class="create-button">
+  <button (click)="openCreateDialog()" class="btn">Add Products</button>
+</div> -->
+  
+<ng-container *ngIf="isDialogOpen">  
+  <div class="container">
+    <mat-card > 
+      <h2 class="text-center">Add a New Product</h2>
+      <div class="container form-container">
+        <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+          <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" [(ngModel)]="product.productName" required pattern="[A-Za-z ]*">
+            <div *ngIf="productForm.controls['productName']?.invalid && (productForm.controls['productName']?.dirty || productForm.controls['productName']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['productName']?.errors?.['required']">Product name is required.</div>
+              <div *ngIf="productForm.controls['productName']?.hasError('pattern')">Only alphabets and spaces are allowed.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productCategory">Product Category:</label>
+            <input type="text" id="productCategory" name="productCategory" [(ngModel)]="product.productCategory" required pattern="[A-Za-z ]*">
+            <div *ngIf="productForm.controls['productCategory']?.invalid && (productForm.controls['productCategory']?.dirty || productForm.controls['productCategory']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['productCategory']?.errors?.['required']">Product category is required.</div>
+              <div *ngIf="productForm.controls['productCategory']?.hasError('pattern')">Only alphabets and spaces are allowed.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productSubCategory">Product SubCategory:</label>
+            <input type="text" id="productSubCategory" name="productSubCategory" [(ngModel)]="product.productSubCategory" required pattern="[A-Za-z ]*">
+            <div *ngIf="productForm.controls['productSubCategory']?.invalid && (productForm.controls['productSubCategory']?.dirty || productForm.controls['productSubCategory']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['productSubCategory']?.errors?.['required']">Product Subcategory is required.</div>
+              <div *ngIf="productForm.controls['productSubCategory']?.hasError('pattern')">Only alphabets and spaces are allowed.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productBrand">Product Brand:</label>
+            <input type="text" id="productBrand" name="productBrand" [(ngModel)]="product.productBrand" required pattern="[A-Za-z ]*">
+            <div *ngIf="productForm.controls['productBrand']?.invalid && (productForm.controls['productBrand']?.dirty || productForm.controls['productBrand']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['productBrand']?.errors?.['required']">Product brand is required.</div>
+              <div *ngIf="productForm.controls['productBrand']?.hasError('pattern')">Only alphabets and spaces are allowed.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productDesc">Product Description:</label>
+            <textarea id="productDesc" name="productDesc" [(ngModel)]="product.productDesc" required></textarea>
+            <div *ngIf="productForm.controls['productDesc']?.invalid && (productForm.controls['productDesc']?.dirty || productForm.controls['productDesc']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['productDesc']?.errors?.['required']">Product description is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stockQuantity">Stock Quantity:</label>
+            <input type="number" id="stockQuantity" name="stockQuantity" [(ngModel)]="product.stockQuantity" required>
+            <div *ngIf="productForm.controls['stockQuantity']?.invalid && (productForm.controls['stockQuantity']?.dirty || productForm.controls['stockQuantity']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['stockQuantity']?.errors?.['required']">Stock quantity is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" [(ngModel)]="product.price" required>
+            <div *ngIf="productForm.controls['price']?.invalid && (productForm.controls['price']?.dirty || productForm.controls['price']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['price']?.errors?.['required']">Price is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sellingPrice">Selling Price:</label>
+            <input type="number" id="sellingPrice" name="sellingPrice" [(ngModel)]="product.sellingPrice" required>
+            <div *ngIf="productForm.controls['sellingPrice']?.invalid && (productForm.controls['sellingPrice']?.dirty || productForm.controls['sellingPrice']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['sellingPrice']?.errors?.['required']">Selling price is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sellerEmailId">Seller Email:</label>
+            <input type="email" id="sellerEmailId" name="sellerEmailId" [(ngModel)]="product.sellerEmailId" required email>
+            <div *ngIf="productForm.controls['sellerEmailId']?.invalid && (productForm.controls['sellerEmailId']?.dirty || productForm.controls['sellerEmailId']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['sellerEmailId']?.errors?.['required']">Seller email is required.</div>
+              <div *ngIf="productForm.controls['sellerEmailId']?.errors?.['email']">Please enter a valid email.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productImage">Product Image:</label>
+            <input type="file" id="productImage" name="productImage" (change)="onImageChange($event)" accept="image/*" required>
+            <div *ngIf="productForm.controls['productImage']?.invalid && (productForm.controls['productImage']?.dirty || productForm.controls['productImage']?.touched)" style="color: red;">
+              <div *ngIf="productForm.controls['productImage']?.errors?.['required']">Product image is required.</div>
+            </div>
+          </div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.form.valid">Add</button>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</ng-container>
+
+
+  
+
+  <div class="container2">
+    <mat-card class="table-card"  [@fadeIn]> <!-- Use Angular Material Card for the form -->
+      <h2 style="align-items: center; padding: auto; display: flex; justify-content: center;">Product List</h2>
+        <table class="table">
+    <!-- ... (your existing table code) ... -->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>SellingPrice</th>
+        <th>stockQuantity</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productCategory }}</td>
+        <td>{{ product.productBrand }}</td>
+        <td>&#8377;{{ product.price }}</td>
+        <td>&#8377;{{ product.sellingPrice }}</td>
+        <td>{{ product.stockQuantity }}</td>
+        <td><button mat-raised-button color="warn" (click)="deleteProduct(product.productId)" (click)="productDelete()">Delete</button></td>
+      </tr>
+    </tbody>
+        </table>
+  
+    </mat-card>
+  </div>
+  
+  
+  

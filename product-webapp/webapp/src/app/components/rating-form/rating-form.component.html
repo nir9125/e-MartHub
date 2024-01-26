@@ -1,0 +1,9 @@
+<div class="rating-form">
+  <h2>Leave a Rating and Review</h2>
+  <app-star-rating #starRating (rated)="updateRating($event,0)"></app-star-rating>
+  <form #ratingForm="ngForm">
+
+    <textarea class="review-input" [(ngModel)]="review" name="review" placeholder="Write your review"></textarea>
+    <button class="submit-button" (click)="submit(ratingForm,starRating)" (click)="onClick()">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+
+<app-navbar></app-navbar>
+  <div class="container mt-5">
+    <h2>Order History</h2>
+    <div class="row">
+      <div class="col-md-6 mb-3" *ngFor="let item of products.flat(); let i = index">
+        <div class="card">
+        
+          <div class="card-body">
+            <!-- <h5 style="font-size: large;" class="card-title"><b>{{ item.productId }}</b></h5> -->
+            <h5 style="font-size: large;" class="card-title"><b>{{ item.productName }}</b></h5>
+            <p style="font-size: large;" class="card-text">₹{{ item.sellingPrice }}</p>
+            <!-- <button (click)="getPid(item.productId)">Add review</button> -->
+
+            <mat-expansion-panel (click)="getPid(item.productId)" [expanded]="isPanelExpanded">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Click Here to add your review!
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+               
+               
+                <app-rating-form (submitClicked)="closePanel()"></app-rating-form>
+                
+               
+              </mat-expansion-panel>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <p class="total-cost">Total Cost: {{ getTotalPrice() }}</p> -->
+    <!-- <button class="btn btn-primary" (click)="checkout()">Checkout</button> -->
+  </div>
+

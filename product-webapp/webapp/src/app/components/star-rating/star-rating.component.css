@@ -1,0 +1,16 @@
+.star-rating {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 28px;
+  color: #FFD700;
+  transition: transform 0.2s;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+<body>
+<div class="container">
+  <div class="row">
+    <!-- Profile Card -->
+    <div class="col-md-6" fxLayout="column" fxLayoutAlign="center center">
+      <mat-card class="profile-card" style="margin-top: 30px;">
+        <mat-card-header>
+          <mat-card-title>Your Profile</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="details" style="margin-left: 10%;">
+            <p><strong>First Name:</strong> {{ userDetails.firstName }}</p>
+            <p><strong>Last Name:</strong> {{ userDetails.lastName }}</p>
+            <p><strong>Mail Id:</strong> {{ userDetails.mailId }}</p>
+            <p><strong>Password:</strong> {{ userDetails.password }}</p>
+            <p><strong>Mobile No:</strong> {{ userDetails.mobileNo }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Address Card -->
+    <div class="col-md-6" fxLayout="column" fxLayoutAlign="center center">
+      <mat-card class="address-card" style="margin-top: 5%;">
+        <mat-card-content>
+          <h3>Add Address</h3>
+          <div class="addressForm">
+            <form [formGroup]="saveAddress" (ngSubmit)="registerAddress(saveAddress)">
+              <!-- Address Form Fields (unchanged) -->
+              <div class="form-group" layout="row" layout-align="center center" style="margin-left: 15%;">
+                <mat-form-field flex>
+                  <input matInput type="text" formControlName="doorNo" placeholder="* Door No">
+                  <mat-error *ngIf="saveAddress.get('doorNo')?.touched && saveAddress.get('doorNo')?.hasError('required')">Door No is required</mat-error>
+                </mat-form-field>
+                <!-- Add margin between doorNo and streetName -->
+                <mat-form-field flex style="margin-left: 10px;">
+                  <input matInput type="text" formControlName="streetName" placeholder="* StreetName">
+                  <mat-error *ngIf="saveAddress.get('streetName')?.touched && saveAddress.get('streetName')?.hasError('required')">StreetName is Required</mat-error>
+                </mat-form-field>
+              </div>
+              
+              <div class="form-group" layout="row" layout-align="center center" style="margin-left: 15%;">
+                <mat-form-field flex>
+                  <input matInput type="text" formControlName="cityName" placeholder="* CityName">
+                  <mat-error *ngIf="saveAddress.get('cityName')?.touched && saveAddress.get('cityName')?.hasError('required')">CityName is Required</mat-error>
+                </mat-form-field>
+                <!-- Add margin between cityName and pinCode -->
+                <mat-form-field flex style="margin-left: 10px;">
+                  <input matInput type="text" formControlName="pinCode" placeholder="* Pin Code">
+                  <mat-error *ngIf="saveAddress.get('pinCode')?.touched && saveAddress.get('pinCode')?.hasError('required')">Pincode is Required</mat-error>
+                </mat-form-field>
+              </div>
+              <mat-form-field flex style="margin-left: 30%">
+                <input matInput type="email" formControlName="emailId" placeholder="* Email Id">
+                <mat-error *ngIf="saveAddress.get('emailId')?.touched && saveAddress.get('emailId')?.hasError('required')">Email is Required</mat-error>
+              </mat-form-field>
+              
+              <div class="form-group text-center">
+                <button mat-raised-button color="primary" [disabled]="saveAddress.invalid" (click)="addAddress()">Add</button>
+              </div>
+            </form>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <h3>Saved Addresses</h3>
+    <div class="row">
+      <h3>Saved Addresses</h3>
+      <div class="col-md-4 address" *ngFor="let items of addressList">
+        <mat-card class="mb-4" style="width: 400px;">
+          <mat-card-content>
+            <p class="card-text"><strong>Door No:</strong> {{ items.doorNo }}</p>
+            <p class="card-text"><strong>Street Name:</strong> {{ items.streetName }}</p>
+            <p class="card-text"><strong>City Name:</strong> {{ items.cityName }}</p>
+            <p class="card-text"><strong>Pin Code:</strong> {{ items.pinCode }}</p>
+            <div style="display: flex; gap: 50%;">
+              <button mat-raised-button color="primary" [routerLink]="['/customerDashboard']" (click)="selectClick()">Select</button>
+              <!-- <button mat-raised-button color="warn" (click)="deleteAddress(items)">Delete</button> -->
+              <mat-icon class="delete-icon" color="warn" (click)="deleteAddress(items)" (click)="deleteClick()">delete</mat-icon>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- ... Other content ... -->
+    </div>
+  </div>
+</body>

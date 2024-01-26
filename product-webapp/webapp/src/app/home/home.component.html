@@ -1,0 +1,233 @@
+<section class="header">
+  <div class="logo">
+   
+    <img src="assets/images/e-martHub-logos_transparent.png" alt="Logo" class="imageLogo">
+  </div>
+  <a routerLink="/home"><img src="assets/images/e-martHub-logos_transparent.png" alt="Logo" class="imageLogo"></a>
+  <div class="actions">
+   
+  </div>
+    <div class="actions">
+      <!-- <div class="search-autocomplete"> -->
+        <!-- <mat-icon class="search-icon">search</mat-icon>
+        <input type="text" style="border: none;" placeholder="Search" (input)="onSearchInput($event)"> -->
+        <div class="search-bar">
+          <mat-icon class="search-icon">search</mat-icon>
+          <input style="border: none;" type="text" placeholder="Search...">
+        </div>
+        <ul class="autocomplete-list" *ngIf="showAutocomplete">
+          <li *ngFor="let suggestion of searchSuggestions" (click)="selectSuggestion(suggestion)">{{ suggestion }}</li>
+        </ul>
+      <!-- </div> -->
+      <div class="loginBtns" style="display: flex; justify-content: space-between; width: 20%;">
+        <a routerLink="/login"><button class="login-button">Login</button></a>
+        <a routerLink="/registration"><button class="login-button">Register</button></a>
+      </div>
+    </div>
+    
+  </section>
+
+
+<section class="trending-products">
+  <div class="animation-above"></div>
+  <div class="trending-title">
+    <h2>Trending Products</h2>
+  </div>
+  <div class="animation-below"></div>
+
+  <div class="product" *ngFor="let product of trendingProducts">
+    <div class="carousel-content">
+      <div class="carousel-image">
+        <img [src]="product.imageUrl" alt="Product Offer" [class.visible]="hoveredProduct === product">
+      </div>
+      <div class="carousel-details">
+        <h3>{{ product.name }}</h3>
+        <div class="brand-price">
+          <p><strong>Brand:</strong> {{ product.brand }}</p>
+          <p><strong>Price:</strong> {{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section class="categories">
+    <a routerLink="/login">Home & Kitchen</a>
+    <a routerLink="/login">Cloths</a>
+    <a routerLink="/login">Beauty</a>
+    <a routerLink="/login">Toys & More</a>
+    <a routerLink="/login">Electronics</a>
+  </section>
+  
+  
+
+<section class="products">
+   <div class="category">
+    <h2>Home & Kitchen</h2>
+    <button (click)="toggleShowAll('homeAndKitchen')" [routerLink]="['/login']">View All</button>
+    <div class="product" *ngFor="let product of getDisplayedProducts('homeAndKitchen')">
+      <!-- <a routerLink="/product/{{ product.id }}">  -->
+        <img [src]="product.imageUrl" alt="Product Image">
+        <h3>{{ product.name }}</h3>
+        <p><strong>Brand:</strong> {{ product.brand }}</p>
+        <p><strong>Price:</strong> <del>{{ product.price }}</del> <span class="price-gap"> Dis.Price:  </span><span class="discounted-price">{{ product.discountedPrice }}</span></p>
+        <p class="offer-details">{{ product.offerPercentage }}% off</p>
+      <!-- </a>  -->
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Clothing</h2>
+    <button (click)="toggleShowAll('Cloth')" [routerLink]="['/login']">View All</button>
+    <div class="product" *ngFor="let product of getDisplayedProducts('beauty')">
+      <img [src]="product.imageUrl" alt="Product Image">
+      <h3>{{ product.name }}</h3>
+      <p><strong>Brand:</strong> {{ product.brand }}</p>
+      <p><strong>Price:</strong> <del>{{ product.price }}</del> <span class="price-gap"> Dis.Price:  </span><span class="discounted-price">{{ product.discountedPrice }}</span></p>
+      <p class="offer-details">{{ product.offerPercentage }}% off</p>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Beauty</h2>
+    <button (click)="toggleShowAll('Beauty')" [routerLink]="['/login']">View All</button>
+    <div class="product" *ngFor="let product of getDisplayedProducts('food')">
+      <img [src]="product.imageUrl" alt="Product Image">
+      <h3>{{ product.name }}</h3>
+      <p><strong>Brand:</strong> {{ product.brand }}</p>
+      <p><strong>Price:</strong> <del>{{ product.price }}</del> <span class="price-gap"> Dis.Price:  </span><span class="discounted-price">{{ product.discountedPrice }}</span></p>
+      <p class="offer-details">{{ product.offerPercentage }}% off</p>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Toys & More</h2>
+    <button (click)="toggleShowAll('Toys')"[routerLink]="['/login']">View All</button>
+    <div class="product" *ngFor="let product of getDisplayedProducts('toysAndMore')">
+      <img [src]="product.imageUrl" alt="Product Image">
+      <h3>{{ product.name }}</h3>
+      <p><strong>Brand:</strong>{{ product.brand }}</p>
+      <p><strong>Price:</strong> <del>{{ product.price }}</del><span class="price-gap"> Dis.Price:  </span> <span class="discounted-price">{{ product.discountedPrice }}</span></p>
+      <p class="offer-details">{{ product.offerPercentage }}% off</p>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Best of Electronics</h2>
+    <button (click)="toggleShowAll('Electronics')"  [routerLink]="['/login']">View All</button>
+    <div class="product" *ngFor="let product of getDisplayedProducts('bestOfElectronics')">
+      <img [src]="product.imageUrl" alt="Product Image">
+      <h3>{{ product.name }}</h3>
+      <p><strong>Brand:</strong>{{ product.brand }}</p>
+      <p><strong>Price:</strong> <del>{{ product.price }}</del> <span class="price-gap"> Dis.Price:  </span><span class="discounted-price">{{ product.discountedPrice }}</span></p>
+      <p class="offer-details">{{ product.offerPercentage }}% off</p>
+    </div>
+  </div>
+</section>
+
+<section class="top-brands">
+  <h2><strong>Discover Top Brands</strong></h2>
+  <p>Explore a curated collection of products from the most sought-after brands in the market. Elevate your shopping experience with quality and style.</p>
+  <div class="brand-list">
+    <div class="brand">
+      <img src="assets/images/product1.jpg" alt="Brand 1">
+      <h3><strong>Quartz</strong></h3>
+      <p>Explore a wide range of products</p>
+    </div>
+    <div class="brand">
+      <img src="assets/images/product6.jpg" alt="Brand 2">
+      <h3><strong>Himalaya</strong></h3>
+      <p>Discover products known for their durability and exceptional performance.</p>
+    </div>
+    <div class="brand">
+      <img src="assets/images/product11.jpg" alt="Brand 3">
+      <h3><strong>Teddy</strong></h3>
+      <p>Experience luxury and elegance with this brand.</p>
+    </div>
+    <div class="brand">
+      <img src="assets/images/product8.jpg" alt="Brand 4">
+      <h3><strong>Nuts</strong></h3>
+      <p>Experience luxury with this brand.</p>
+    </div>
+  </div>
+  <p><a class="explore-button" routerLink="/login">Browse All Brands</a></p>
+</section>
+
+
+<section class="instruction">
+  <div class="background-decoration"></div>
+  <div class="left-decoration"></div>
+  <div class="instruction-content">
+    <h2>Welcome to e-martHub!</h2>
+    <p>Unleash the World of Shopping Delights</p>
+    <p><strong>Discover Trends, Shop Smart, Repeat Joy!</strong></p>
+    <ul class="ul_class">
+      <li class="li_class"><span class="highlight"><strong>Hover</strong></span> over products for a closer look.</li>
+      <li class="li_class"><span class="highlight"><strong>Click</strong></span> on products to learn more.</li>
+      <li class="li_class"><span class="highlight"><strong>Use the search bar</strong></span> to find your desired items.</li>
+    </ul>
+    <p class="start-shopping">Start your shopping journey now!</p>
+    <a routerLink="/login"><button class="explore-button">Explore Now</button></a>
+  </div>
+  <div class="right-decoration">
+    <!-- Add an image here for the right decoration -->
+    <!-- <img src="src\assets\images\product4.jpg" alt="Right Decoration" /> -->
+  </div>
+</section>
+
+<section class="deals-offers">
+  <h2>Deals and Offers</h2>
+  <div class="deal">
+    <img src="assets/images/product14.jpg" alt="Deal 1" />
+    <p>Up to 50% off on Electronics</p>
+  </div>
+  <div class="deal">
+    <img src="assets/images/product11.jpg" alt="Deal 2" />
+    <p>Buy One, Get One Free on Clothing</p>
+  </div>
+  <div class="deal">
+    <img src="assets/images/product2.jpg" alt="Deal 3" />
+    <p>Special Discounts on Home Decor</p>
+  </div>
+  <div class="deal">
+    <img src="assets/images/product4.jpg" alt="Deal 4" />
+    <p>Limited Time Offer on Beauty Products</p>
+  </div>
+</section>
+ <!-- <app-footer></app-footer> -->
+  
+  <section class="footer">
+    <div class="footer-section">
+      <h3>About</h3>
+      <a href="#">Contact Us</a><br>
+      <a href="#">About Us</a><br>
+      <a href="#">Corporate Information</a>
+    
+    </div>
+    <div class="footer-section">
+      <h3>Help</h3>
+      <a href="#">Payments</a><br>
+      <a href="#">Shipping</a><br>
+      <a href="#">Cancellation and Returns</a><br>
+      <a href="#">FAQ</a><br>
+      <a href="#">Infringement</a>
+    </div>
+  
+    <div class="footer-section">
+      <h3>Consumer Policy</h3>
+      <a href="#">Cancellation and Returns</a><br>
+      <a href="#">Terms of Use</a>
+    </div>
+  
+    <div class="footer-section">
+      <h3>Social</h3>
+      <div class="social-icons">
+        <a href="#"><span class="icon">📘</span></a><br>
+        <a href="#"><span class="icon">🐦</span></a><br>
+        <a href="#"><span class="icon">📺</span></a>
+      </div>
+    </div>
+  </section>
+  
+  
+  

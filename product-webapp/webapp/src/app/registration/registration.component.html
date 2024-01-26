@@ -1,0 +1,96 @@
+<body style="background-color: #faf0d7;">
+    <div class="title">
+        <a routerLink="/home"><img src="assets/images/blue.png" alt="Logo" class="image"></a>
+    </div>
+    <div class="container mt-5">
+        <div class="card bg-white mx-auto" style="max-width: 1000px;" id="animated-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://i.pinimg.com/564x/34/c8/13/34c813b75ce86010ab00adecb7585f3f.jpg"
+                            alt="Registration Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="card-title text-center mb-4 dark">Welcome to e-martHub</h4>
+                        <form [formGroup]="saveForm" (ngSubmit)="registerUser(saveForm)">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" formControlName="firstName"
+                                        placeholder="FirstName" style="color: black;">
+                                    <small
+                                        *ngIf="saveForm.get('firstName')?.touched && saveForm.get('firstName')?.hasError('required')"
+                                        class="text-center">FirstName is Required</small>
+                                    <small
+                                        *ngIf="saveForm.get('firstName')?.touched && saveForm.get('firstName')?.hasError('maxLength')"
+                                        class="text-center">Max length is 50</small>
+                                    <small
+                                        *ngIf="saveForm.get('firstName')?.touched && saveForm.get('firstName')?.hasError('pattern')"
+                                        class="text-center">Alphabets only</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" formControlName="lastName"
+                                        placeholder="Lastname">
+                                    <small
+                                        *ngIf="saveForm.get('lastName')?.touched && saveForm.get('lastName')?.hasError('required')"
+                                        class="text-center">Lastname is Required</small>
+                                    <small
+                                        *ngIf="saveForm.get('lastName')?.touched && saveForm.get('lastName')?.hasError('maxLength')"
+                                        class="text-center">Max length is 50</small>
+                                    <small
+                                        *ngIf="saveForm.get('lastName')?.touched && saveForm.get('lastName')?.hasError('pattern')"
+                                        class="text-center">Alphabets only</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" formControlName="mailId" placeholder="Email">
+                                <small
+                                    *ngIf="saveForm.get('mailId')?.touched && saveForm.get('mailId')?.hasError('required')"
+                                    class="text-center">Email is Required</small>
+                                <small
+                                    *ngIf="saveForm.get('mailId')?.touched && saveForm.get('mailId')?.hasError('pattern')"
+                                    class="text-center">Please enter valid email</small>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" formControlName="password"
+                                    placeholder="Password">
+                                <small
+                                    *ngIf="saveForm.get('password')?.touched && saveForm.get('password')?.hasError('required')"
+                                    class="text-center">Password is Required</small>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" formControlName="mobileNo"
+                                    placeholder="Mobile Number">
+                                <small
+                                    *ngIf="saveForm.get('mobileNo')?.touched && saveForm.get('mobileNo')?.hasError('required')"
+                                    class="text-center">Mobile number is Required</small>
+                                <small
+                                    *ngIf="saveForm.get('mobileNo')?.touched && saveForm.get('mobileNo')?.hasError('pattern')"
+                                    class="text-center">Please enter a valid numeric phone number with a maximum length of 10 digits</small>
+                            </div>
+                            <label for="role" class="text-center" style="color: black;">Select role</label>
+                            <div class="form-group">
+                                <select class="form-select" class="form-control" formControlName="role">
+                                    <label for="role">Select role</label>
+                                    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                                </select>
+                                <small
+                                    *ngIf="saveForm.get('role')?.touched && saveForm.get('role')?.hasError('required')"
+                                    class="text-center">Select the role</small>
+                            </div>
+                            <div class="form-group terms">
+                            </div>
+                                <button type="submit" class="btn btn-primary btn-block"
+                                    style="background-color: #090580;" [disabled]="saveForm.invalid">Register</button> 
+                            <div class="text-center mb-3 text">
+                                <span style="margin-right: 10px; color: black;">Already have an account?</span><a routerLink="/login" style="color: blue;">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+  
+  

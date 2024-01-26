@@ -1,0 +1,203 @@
+.form-card {
+  width: 600px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.mat-toolbar {
+  background-color: #090580;
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3e7e9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(239, 232, 232);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 5%;
+}
+
+
+mat-toolbar {
+  background-color: #1976D2;
+  color: white;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.form-card {
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  margin-left: 10%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background-color: #1976D2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #1565C0;
+}
+
+.container2 {
+  margin: 0px 30px 0px 30px;
+  margin-top: 5%;
+}
+
+.imageLogo {
+  width: 15%;
+}
+
+.create-button-container {
+  display: flex;
+  justify-content: center;
+  background-color: #090580;
+  padding: 20px;
+  /* Adjust the padding as needed */
+}
+
+.add-products-button {
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #090580;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-products-button:hover {
+  background-color: #0c0ca1;
+}
+
+.btn {
+  margin-left: 45%;
+  margin-top: 15px;
+}
+
+
+/* CSS for container */
+.container2 {
+  margin: 20px;
+}
+
+/* CSS for mat-card */
+.table-card {
+  background-color: #f0f0f0;
+  /* Set your desired background color */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for the table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* CSS for table headers */
+.table th {
+  background-color: #333;
+  /* Header background color */
+  color: #fff;
+  /* Header text color */
+  padding: 10px;
+  text-align: left;
+}
+
+/* CSS for table rows */
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  /* Alternate row background color */
+}
+
+.table tbody tr:hover {
+  background-color: #ddd;
+  /* Hover row background color */
+}
+
+/* CSS for table cells */
+.table td {
+  padding: 10px;
+}
+
+/* CSS for h2 */
+h2 {
+  color: #333;
+  /* Heading text color */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* CSS for button */
+button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* CSS for currency display */
+.currency {
+  font-weight: bold;
+  color: #007BFF;
+  /* Set your desired color */
+}
+
+/* CSS to center-align the h2 element */
+h2 {
+  text-align: center;
+}

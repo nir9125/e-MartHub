@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #090580;">
+ 
+    <li class="nav-item">
+  
+      <a routerLink="/customerDashboard"><img src="assets/images/e-martHub-logos_transparent.png" alt="Logo"class="imageLogo"></a>
+    </li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+      
+        <li class="nav-item">
+          <a><i class="material-icons" [matMenuTriggerFor]="menu" style="font-size:43px;   color: aliceblue; ">person</i></a>
+         </li>
+        <li class="nav-item">
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/userProfile']" style="background-color: white; color: black;">
+              Profile
+            </button>
+           
+            <button mat-menu-item style="color: red;" [routerLink]="['/login']" style="background-color: white; color: black;">
+             Logout
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  
+<div class="create-button">
+    <button (click)="openCreateDialog()" class="btn">Add Products</button>
+  </div>
+  <h1>{{sellermail}}</h1>
+  <ng-container *ngIf="isDialogOpen">
+    <div class="container form-container">
+      <form [formGroup]="productForm" (ngSubmit)="onProductSave(productForm)">
+        <input type="text" hidden [value]= "sellermail" formControlName="sellerEmailId">
+        <div class="form-outline mb-4">
+          <input type="text" id="productName" class="form-control" formControlName="productName"
+            placeholder="Product Name" #productName />
+  
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input type="text" id="productCategory" class="form-control" formControlName="productCategory"
+            placeholder="Product Category" #productCategory />
+  
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input type="text" id="productSubCategory" class="form-control" formControlName="productSubCategory"
+            placeholder="Product Subcategory" #productSubCategory />
+  
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input type="text" id="productBrand" class="form-control" formControlName="productBrand"
+            placeholder="Product Brand" #productBrand />
+  
+        </div>
+  
+        <div class="form-outline mb-4">
+          <textarea class="form-control" formControlName="productDesc" placeholder="Product Description" #productDesc
+            required></textarea>
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input type="number" id="price" class="form-control" formControlName="price" placeholder="Price" #price />
+  
+        </div>
+  
+        <div class="form-outline mb-4">
+          <input type="number" id="stockQuantity" class="form-control" formControlName="stockQuantity"
+            placeholder="Stock Quantity" #stockQuantity />
+  
+        </div>
+<!--   
+        <div class="form-outline mb-4">
+          <input type="number" id="rating" class="form-control" formControlName="rating" placeholder="Rating" #rating />
+  
+        </div> -->
+  
+        <div class="form-outline mb-4">
+          <input type="number" id="sellingPrice" class="form-control" formControlName="sellingPrice"
+            placeholder="Selling Price" #sellingPrice />
+  
+        </div>
+  
+        <div class="form-outline mb-4">
+          <label class="form-label" for="customFile">Image:</label>
+          <input type="file" class="form-control" id="customFile" formControlName="productImage" (change)="myfile($event)"/>
+        </div>
+  
+        <button type="submit" class="btn btn-primary btn-block">Save Product</button>
+      </form>
+    </div>
+  </ng-container>
+  <div class="container2">
+    <mat-card class="table-card"  [@fadeIn]> <!-- Use Angular Material Card for the form -->
+      <h2>Product List</h2>
+        <table class="table">
+    <!-- ... (your existing table code) ... -->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>SellingPrice</th>
+        <th>Stock Quantity</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productCategory }}</td>
+        <td>{{ product.productBrand }}</td>
+        <td>&#8377;{{ product.price }}</td>
+        <td>&#8377;{{ product.sellingPrice }}</td>
+       <td>{{product.stockQuantity}}</td>
+      </tr>
+    </tbody>
+        </table>
+  
+    </mat-card>
+  </div>
+  
+  
+  

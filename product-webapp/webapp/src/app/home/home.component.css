@@ -1,0 +1,763 @@
+/* Basic styles for the header section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #090580; 
+  color: #fff;
+  padding: 10px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.imageLogo{
+  width: 15%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-grow: 0.5; 
+  justify-content: center; /* Center the input and button */
+}
+
+.actions input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 2; 
+}
+
+.login-button {
+  background-color: #fff;
+  color: #090580; 
+  border: 1px solid #090580; 
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 5px 10px; 
+  cursor: pointer;
+}
+
+.notification-icon,
+.cart-icon {
+  font-size: 2rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 2.2rem;
+  color: #fff; /* Set icon color to white */
+}
+
+/*  styles for the categories section */
+.categories {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  margin: 0 5px;
+}
+
+/* Basic styles for the products section */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.products .product {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Add vertical spacing between products */
+}
+/* Style for the "View All" button */
+button {
+  padding: 5px 10px;
+  background-color: #090580; 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*  styles for the footer section */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons span {
+  margin-right: 5px;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.footer-section a {
+  color: white;
+  /* Set the text color to white */
+  text-decoration: none;
+  /* Remove underlines from links */
+  display: block;
+  /* Display links as block elements (on separate lines) */
+  margin-bottom: 5px;
+  /* Add some spacing between links */
+}
+
+/* Styles for social icons in the footer subsections */
+.footer-section .social-icons .icon {
+  color: white;
+  /* Set the icon color to white */
+  font-size: 1.5rem;
+  /* Adjust the icon size as needed */
+  display: block;
+  /* Display icons as block elements (on separate lines) */
+  margin-bottom: 5px;
+ 
+}
+
+
+.product img {
+  max-width: 50%;
+  height: 100px;
+}
+/* Add this style for the zoom effect */
+.product img:hover {
+  transform: scale(1.2); /* Adjust the scale factor for desired zoom effect */
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Set body background color */
+body {
+  background-color: #faf0d7;
+}
+
+.banner-carousel {
+  position: relative;
+  overflow: hidden;
+  height: 400px; /* Adjust the height of the carousel section as needed */
+  margin-bottom: 40px;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-image img {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 24px;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+  color: #fff;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-image img.visible {
+  opacity: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+
+.search-autocomplete {
+
+  position: relative;
+  display: inline-block;
+  width: 400px; 
+  
+}
+
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.autocomplete-list li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.autocomplete-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.trending-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  padding: 22px;
+  position: relative; 
+  
+}
+
+.trending-products h2 {
+  margin-bottom: 22px;
+}
+.trending-title {
+  margin-top: 100px;
+}
+
+.animation-above,
+.animation-below {
+  position: absolute;
+  width: 100%;
+  height: 50px; 
+  background: linear-gradient(to right, transparent, #fff 50%, transparent);
+}
+
+.animation-above {
+  top: -20px;
+  animation: slideFromAbove 2s linear infinite;
+}
+
+.animation-below {
+  bottom: -20px;
+  animation: slideFromBelow 2s linear infinite;
+}
+
+@keyframes slideFromAbove {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideFromBelow {
+  0%, 100% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+
+.product .carousel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.discounted-price {
+  color: #e74c3c; 
+  font-weight: bold;
+}
+
+.offer-details {
+  color: #27ae60; 
+  margin-top: 5px;
+}
+
+.price-gap {
+  margin: 0 5px; 
+}
+
+/* Style for the instruction section */
+.instruction {
+  position: relative;
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.background-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e74c3c;
+  opacity: 0.2;
+  z-index: -1;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.instruction:hover .background-decoration {
+  transform: scaleX(2); /* Increase the scale factor for a more dramatic effect */
+  opacity: 0.6;
+}
+
+.left-decoration,
+.right-decoration {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.1;
+  z-index: -1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.instruction:hover .left-decoration {
+  animation-name: slideLeft;
+}
+
+.instruction:hover .right-decoration {
+  animation-name: slideRight;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.instruction-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.offers-and-deals-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.close-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+/* Example media query for small screens */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  .logo h1 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .actions input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .login-button {
+    margin-left: 0;
+  }
+  .notification-icon,
+  .cart-icon {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  /* Add more responsive styles as needed */
+}
+/* Styles for navigation dots */
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.slick-dots button {
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.slick-dots button:focus {
+  outline: none;
+}
+
+.slick-dots button.active {
+  background-color: #090580; /* Change the active dot color */
+}
+
+/* Style for the logo */
+.logo {
+  display: flex;
+  align-items: center;
+  size: 5vh;
+}
+
+.logo img {
+  width: 100px; /* Adjust the width as needed */
+  height: 0px;
+}
+
+
+/* Blockbuster Deals Section */
+.blockbuster-deals {
+  position: relative;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.blockbuster-deals h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.blockbuster-deals p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.explore-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.explore-button:hover {
+  background-color: #e65100;
+}
+
+.blockbuster-deals h3 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.blockbuster-deals ol {
+  text-align: left;
+  margin-left: 40px;
+  font-size: 16px;
+}
+
+.blockbuster-deals ol li {
+  margin-bottom: 10px;
+}
+
+/* Decorations */
+.blockbuster-deals .background-decoration,
+.blockbuster-deals .left-decoration,
+.blockbuster-deals .right-decoration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+}
+
+.blockbuster-deals .background-decoration {
+  left: 0;
+  background-color: #f4f4f4;
+  z-index: -1;
+}
+
+.blockbuster-deals .left-decoration {
+  left: -50px;
+  background-color: #ff6600;
+}
+
+.blockbuster-deals .right-decoration {
+  right: -50px;
+  background-color: #ff6600;
+}
+
+.blockbuster-deals .limited-time {
+  font-size: 18px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.catch-deal-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.catch-deal-step {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  margin: 0 10px;
+}
+.brand-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-price p {
+  margin: 5px 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.li_class{
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.top-brands {
+  background-color: #faf0d7;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.top-brands h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.brand {
+  background-color: #e2d7d7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.brand img {
+  max-width: 80px;
+  margin-bottom: 10px;
+}
+
+.brand h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.brand p {
+  font-size: 14px;
+  color: #777;
+}
+
+.explore-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #0056b3;
+}
+
+.deals-offers {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #faf0d7;
+  text-align: center;
+}
+
+.deals-offers h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.deal {
+  display: inline-block;
+  
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+.deal img {
+  
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  max-height: 150px; 
+  margin-bottom: 10px;
+}
+
+.deal p {
+  font-size: 18px;
+  color: #333;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0px;
+  background-color: white;
+}
+
+.search-icon {
+  font-size: 24px;
+  color: #555;
+  margin-right: 5px;
+}
+.searchBox{
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

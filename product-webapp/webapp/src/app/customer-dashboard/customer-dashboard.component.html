@@ -1,0 +1,213 @@
+<app-navbar></app-navbar>
+  
+  
+  <section class="trending-products">
+    <div class="animation-above"></div>
+    <div class="trending-title">
+      <h2>Trending Products</h2>
+    </div>
+    <div class="animation-below"></div>
+  
+    <div class="product" *ngFor="let product of trendingProducts">
+      <div class="carousel-content">
+        <div class="carousel-image">
+          <img [src]="product.imageUrl" alt="Product Offer" [class.visible]="hoveredProduct === product">
+        </div>
+        <div class="carousel-details">
+          <h3>{{ product.name }}</h3>
+          <div class="brand-price">
+            <p><strong>Brand:</strong> {{ product.brand }}</p>
+            <p><strong>Price:</strong> {{ product.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+   <section class="categories">
+    <button (click)="toggleShowAll('homeAndKitchen')" [routerLink]="['/productList']" style="background-color: #f0f0f0; color: black;">Home and kitchen</button>
+    <button (click)="toggleShowAll('Cloth')" [routerLink]="['/productList']" style="background-color: #f0f0f0; color: black;">Clothing</button>
+    <button (click)="toggleShowAll('Beauty')" [routerLink]="['/productList']" style="background-color: #f0f0f0; color: black;">Beauty</button>
+    <button (click)="toggleShowAll('Toys')" [routerLink]="['/productList']" style="background-color: #f0f0f0; color: black;">Toys</button>
+    <button (click)="toggleShowAll('Electronics')" [routerLink]="['/productList']" style="background-color: #f0f0f0; color: black;">Electronics</button>
+
+     
+    </section>
+    <!-- <section class="categories">
+      <button type="button" class="btn btn-light" (click)="toggleShowAll('homeAndKitchen')" [routerLink]="['/productList']">Home & Kitchen</button>
+      <button type="button" class="btn btn-light" (click)="toggleShowAll('Cloth')" [routerLink]="['/productList']">Cloths</button>
+      <button type="button" class="btn btn-light" (click)="toggleShowAll('Beauty')" [routerLink]="['/productList']">Beauty</button>
+      <button type="button" class="btn btn-light" (click)="toggleShowAll('Toys')" [routerLink]="['/productList']">Toys</button>
+      <button type="button" class="btn btn-light" (click)="toggleShowAll('Electronics')" [routerLink]="['/productList']">Electronics</button>
+    </section> -->
+    
+  
+  <section class="products">
+     <div class="category">
+      <h2>Home & Kitchen</h2>
+      <button (click)="toggleShowAll('homeAndKitchen')" [routerLink]="['/productList']">View All</button>
+      <!-- <div class="product" *ngFor="let product of getDisplayedProducts('homeAndKitchen')"> -->
+        <div class="product" *ngFor="let product of product3">
+          <!-- <a href="/productdet/{{product.productId}}"></a> -->
+          <a href="/productdet/{{product.productId}}">
+            <div class="image-wrapper">
+              <img [src]="product.image" alt="image" class="imageOfProduct" (click)="toggleShowAll('homeAndKitchen')">
+            </div>
+          </a>
+          <h4>{{ product.productName | slice:0:20 }}..</h4>
+          <p><strong>Brand:</strong> {{ product.productBrand }}</p>
+          <b>{{product.rating}}<b>&#9733;</b></b>
+          <p>
+            <b><span>&#8377;{{ product.sellingPrice }}</span></b><span><del>&#8377;{{ product.price }}</del></span></p>
+          <p class="offer-details">{{ product.discountedPercentage }}% off</p>
+      </div>
+    </div>
+  
+    <div class="category">
+      <h2>Clothing</h2>
+      <button (click)="toggleShowAll('Cloth')" [routerLink]="['/productList']">View All</button>
+      <div class="product" *ngFor="let product of product4">
+        <a href="/productdet/{{product.productId}}">
+          <div class="image-wrapper">
+            <img [src]="product.image" alt="image" class="imageOfProduct" (click)="toggleShowAll('Cloth')">
+          </div>
+        </a>
+        <h4>{{ product.productName | slice:0:20 }}..</h4>
+        <p><strong>Brand:</strong> {{ product.productBrand }}</p>
+        <b>{{product.rating}}<b>&#9733;</b></b>
+        <p>
+          <b><span>&#8377;{{ product.sellingPrice }}</span></b><span><del>&#8377;{{ product.price }}</del></span></p>
+        <p class="offer-details">{{ product.discountedPercentage }}% off</p>
+    </div>
+    </div>
+  
+    <div class="category">
+      <h2>Beauty</h2>
+      <button (click)="toggleShowAll('Beauty')" [routerLink]="['/productList']">View All</button>
+      <div class="product" *ngFor="let product of product5">
+        <a href="/productdet/{{product.productId}}">
+          <div class="image-wrapper">
+            <img [src]="product.image" alt="image" class="imageOfProduct" (click)="toggleShowAll('Beauty')">
+          </div></a>
+        <h4>{{ product.productName | slice:0:20 }}..</h4>
+        <p><strong>Brand:</strong> {{ product.productBrand }}</p>
+        <b>{{product.rating}}<b>&#9733;</b></b>
+        <p>
+          <b><span>&#8377;{{ product.sellingPrice }}</span></b><span><del>&#8377;{{ product.price }}</del></span></p>
+        <p class="offer-details">{{ product.discountedPercentage }}% off</p>
+    </div>
+    </div>
+  
+    <div class="category">
+      <h2>Toys & More</h2>
+      <button (click)="toggleShowAll('Toys')"[routerLink]="['/productList']">View All</button>
+      <div class="product" *ngFor="let product of product6">
+        <a href="/productdet/{{product.productId}}">
+          <div class="image-wrapper">
+            <img [src]="product.image" alt="image" class="imageOfProduct" (click)="toggleShowAll('Toys')">
+          </div></a>
+        <h4>{{ product.productName | slice:0:20 }}..</h4>
+        <p><strong>Brand:</strong> {{ product.productBrand }}</p>
+        <b>{{product.rating}}<b>&#9733;</b></b>
+        <p>
+          <b><span>&#8377;{{ product.sellingPrice }}</span></b><span><del>&#8377;{{ product.price }}</del></span></p>
+        <p class="offer-details">{{ product.discountedPercentage }}% off</p>
+    </div>
+    </div>
+  
+    <div class="category">
+      <h2>Best of Electronics</h2>
+      <button (click)="toggleShowAll('Electronics')"  [routerLink]="['/productList',]">View All</button>
+      <div class="product" *ngFor="let product of product8">
+        <a href="/productdet/{{product.productId}}">
+          <div class="image-wrapper">
+            <img [src]="product.image" alt="image" class="imageOfProduct" (click)="toggleShowAll('Electronics')">
+          </div></a>
+        <h4>{{ product.productName | slice:0:20 }}..</h4>
+        <p><strong>Brand:</strong> {{ product.productBrand }}</p>
+        <b>{{product.rating}}<b>&#9733;</b></b>
+        <p>
+          <b><span>&#8377;{{ product.sellingPrice }}</span></b><span><del>&#8377;{{ product.price }}</del></span></p>
+        <p class="offer-details">{{ product.discountedPercentage }}% off</p>
+    </div>
+    </div>
+  </section>
+  
+  <section class="instruction">
+    <div class="background-decoration"></div>
+    <div class="left-decoration"></div>
+    <div class="instruction-content">
+      <h2>Welcome to e-martHub!</h2>
+      <p>Unleash the World of Shopping Delights</p>
+      <p><strong>Discover Trends, Shop Smart, Repeat Joy!</strong></p>
+      <ul>
+        <li class="li_class"><span class="highlight"><strong>Hover</strong></span> over products for a closer look.</li>
+        <li class="li_class"><span class="highlight"><strong>Click</strong></span> on products to learn more.</li>
+        <li class="li_class"><span class="highlight"><strong>Use the search bar</strong></span> to find your desired items.</li>
+      </ul>
+      <p class="start-shopping">Start your shopping journey now!</p>
+      <button class="explore-button">Explore Now</button>
+    </div>
+    <div class="right-decoration"></div>
+  </section>
+  
+  <section class="deals-offers">
+    <h2>Deals and Offers</h2>
+    <div class="deal">
+      <img src="assets/images/product14.jpg" alt="Deal 1" />
+      <p>Up to 50% off on Electronics</p>
+    </div>
+    <div class="deal">
+      <img src="assets/images/product11.jpg" alt="Deal 2" />
+      <p>Buy One, Get One Free on Clothing</p>
+    </div>
+    <div class="deal">
+      <img src="assets/images/product2.jpg" alt="Deal 3" />
+      <p>Special Discounts on Home Decor</p>
+    </div>
+    <div class="deal">
+      <img src="assets/images/product4.jpg" alt="Deal 4" />
+      <p>Limited Time Offer on Beauty Products</p>
+    </div>
+  </section>
+   
+    
+    <section class="footer">
+      <!-- About footer section -->
+      <div class="footer-section">
+        <h3>About</h3>
+        <a href="#">Contact Us</a><br>
+        <a href="#">About Us</a><br>
+        <a href="#">Corporate Information</a>
+      
+      </div>
+      <!-- Help footer section -->
+      <div class="footer-section">
+        <h3>Help</h3>
+        <a href="#">Payments</a><br>
+        <a href="#">Shipping</a><br>
+        <a href="#">Cancellation and Returns</a><br>
+        <a href="#">FAQ</a><br>
+        <a href="#">Infringement</a>
+      </div>
+    
+      <!-- Consumer Policy footer section -->
+      <div class="footer-section">
+        <h3>Consumer Policy</h3>
+        <a href="#">Cancellation and Returns</a><br>
+        <a href="#">Terms of Use</a>
+      </div>
+    
+      <!-- Social footer section -->
+      <div class="footer-section">
+        <h3>Social</h3>
+        <div class="social-icons">
+          <a href="#"><span class="icon">📘</span></a><br>
+          <a href="#"><span class="icon">🐦</span></a><br>
+          <a href="#"><span class="icon">📺</span></a>
+        </div>
+      </div>
+    </section>
+    
+    
+    

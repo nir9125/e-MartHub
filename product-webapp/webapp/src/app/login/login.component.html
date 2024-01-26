@@ -1,0 +1,49 @@
+<body style="background-color: #faf0d7">
+  <div class="title">
+    <a routerLink="/home"><img src="assets/images/blue.png" alt="Logo" class="image"></a>
+</div>
+  <div class="container mt-5">
+    <div class="card bg-white mx-auto" style="max-width: 1000px" id="animated-card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="https://i.pinimg.com/564x/34/c8/13/34c813b75ce86010ab00adecb7585f3f.jpg" alt="Registration Image"
+              class="img-fluid" />
+          </div>
+          <div class="inside-card col-md-6">
+            <h4 class="card-title text-center mb-4 dark">Welcome back</h4>
+            <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
+              <div class="form-group">
+                <input type="email" class="form-control" formControlName="mailId" placeholder="Email" />
+                <small *ngIf="
+                    loginForm.get('mailId')?.touched &&
+                    loginForm.get('mailId')?.hasError('required')
+                  " class="text-center">Email is Required</small>
+                <small *ngIf="
+                    loginForm.get('mailId')?.touched &&
+                    loginForm.get('mailId')?.hasError('pattern')
+                  " class="text-center">Please enter valid email</small>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+                <small *ngIf="
+                    loginForm.get('password')?.touched &&
+                    loginForm.get('password')?.hasError('required')
+                  " class="text-center">Password is Required</small>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" style="background-color: #090580"
+                [disabled]="loginForm.invalid">
+                Login
+              </button>
+              <div class="text-center mb-3 text">
+                <span style="margin-right: 10px; color: black">New to e-martHub?</span><a routerLink="/registration"
+                  style="color: blue">Register</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

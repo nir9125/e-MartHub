@@ -1,0 +1,302 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #090580; 
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    flex-grow: 0.5; 
+    justify-content: center; 
+  }
+  
+  .actions input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; 
+  }
+  
+  .login-button {
+    background-color: #fff;
+    color: #090580; 
+    border: 1px solid #090580; 
+    border-radius: 4px;
+    margin-left: 10px;
+    padding: 5px 10px; 
+    cursor: pointer;
+  }
+  
+  .notification-icon,
+  .cart-icon {
+    font-size: 2rem;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .cart-icon {
+    font-size: 2.2rem;
+    color: #fff; 
+  }
+  
+  .categories {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .categories a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    margin: 0 5px;
+  }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .products .product {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; 
+  }
+  button {
+    padding: 5px 10px;
+    background-color: #090580; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .social-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-icons span {
+    margin-right: 5px;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .footer-section a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .footer-section .social-icons .icon {
+    color: white;
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+   
+  }
+  
+  
+  .product img {
+    max-width: 50%;
+    height: 100px;
+  }
+  body {
+    background-color: #faf0d7;
+  }
+  
+
+  .carousel-container {
+    max-width: 100%;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+
+  .carousel-horizontal {
+    display: flex; 
+    align-items: flex-start; 
+    overflow-x: scroll; 
+    scroll-behavior: smooth; 
+    -webkit-overflow-scrolling: touch; 
+    white-space: nowrap; 
+  }
+  
+  .carousel-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .carousel-content {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .carousel-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px; 
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+  }
+  
+  .carousel-image img.visible {
+    opacity: 1;
+  }
+  .carousel-details {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  
+  
+  .search-autocomplete {
+  
+    position: relative;
+    display: inline-block;
+    width: 200px; 
+  }
+  
+  .autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .autocomplete-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .autocomplete-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .trending-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .trending-products h2 {
+    margin-bottom: 20px;
+  }
+  
+  .product .carousel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .discounted-price {
+    color: #e74c3c; 
+    font-weight: bold;
+  }
+  
+  .offer-details {
+    color: #27ae60; 
+    margin-top: 5px;
+  }
+  
+  .price-gap {
+    margin: 0 5px; 
+  }
+  .col-md-6{
+    width: 20%;
+  }
+  .imageLogo{
+    width: 15%;
+  }
+
+   .imageOfProduct{
+    width: 100%;
+    height: 100%;
+  }
+.image-container {
+  width: 100%; 
+  height: 300px; 
+  overflow: hidden; 
+}
+.imageOfProduct{
+  object-fit: cover; 
+  transition: transform 0.3s;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+.image-wrapper:hover .imageOfProduct {
+  transform: scale(1.2);
+}
+.larger-image {
+  width: 80%; 
+  height: auto;
+  max-height: 300px; 
+} 
+ 
+.delete-icon {
+  font-size: 24px;
+  color: white;   
+}
+.card.h-60 {
+  height: 200px; 
+}
+.imageOfProduct {
+  max-height: 100%; 
+  max-width: 100%;
+}
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
